@@ -1,6 +1,14 @@
 # Use Node.js 18
 FROM node:18
 
+# Accept build-time args for OpsAI
+ARG MW_VCS_REPOSITORY_URL
+ARG MW_VCS_COMMIT_SHA
+
+# Set them as env variables inside the container
+ENV MW_VCS_REPOSITORY_URL=$MW_VCS_REPOSITORY_URL
+ENV MW_VCS_COMMIT_SHA=$MW_VCS_COMMIT_SHA
+
 # Set working directory
 WORKDIR /usr/src/app
 
